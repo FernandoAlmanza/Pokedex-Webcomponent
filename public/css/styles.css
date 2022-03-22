@@ -1,0 +1,91 @@
+:root {
+  --main-bg-color: #fe0065;
+  --secondary-bg-color: #f2f2f2;
+  --main-screen-bg-color: #98cb98;
+  --secondary-screen-bg-color: #9e9d9d;
+  --main-buttons-color: #585858;
+  --square-buttons-color: #7ca9f7;
+}
+
+.red {
+  background-color: #ff0000;
+}
+.yellow {
+  background-color: #fecb65;
+}
+.green {
+  background-color: #32cb65;
+}
+.blue {
+  background-color: #3298cb;
+}
+
+.light-blue {
+  background-color: #85bdfe;
+}
+.light-red {
+  background-color: #fe98cb;
+}
+.light-yellow {
+  background-color: #fefecb;
+}
+.light-green {
+  background-color: #98fe00;
+}
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--secondary-bg-color);
+  }
+
+  .search-container {
+    width: 100%;
+    height: 80px;
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-box{
+  padding-top: 1rem;
+}
+
+input {
+    text-align: center;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#submit {
+    padding: 0.8rem 2rem;
+    background-color: #fe0065;
+    color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: ease-in-out 0.25s;
+}
+
+#submit:hover {
+    background-color: #ff6ea8;
+    transition: ease-in-out 0.25s;
+}
+
+#submit:active {
+    background-color: #a00040;
+    transition: ease-in-out 0.25s;
+    padding: 0.6rem 2rem;
+}
