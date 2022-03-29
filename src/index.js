@@ -122,6 +122,7 @@ export default class pokedex extends LitElement {
   __fetchPokemon = () => {
     const pokeNameInput = this.renderRoot?.querySelector("#pokeName");
     this.pokeName = pokeNameInput.value.toLowerCase();
+    pokeNameInput.value = ""
     const url = `https://pokeapi.co/api/v2/pokemon/${this.pokeName}`;
     fetch(url)
       .then((res) => {
