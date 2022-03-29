@@ -7,13 +7,13 @@ export const secondaryScreenBgColor = css`#9e9d9d`;
 export const mainButtonsColor = css`#585858`;
 export const squareButtonsColor = css`#7ca9f7`;
 export const red = css`.red{background-color: #ff0000}`;
-export const yellow = css`#fecb65`;
-export const green = css`#32cb65`;
-export const blue = css`#3298cb`;
-export const lightBlue = css`#85bdfe`;
-export const lightRed = css`#fe98cb`;
-export const lightYellow = css`#fefecb`;
-export const lightGreen = css`#98fe00`;
+export const yellow = css`.yellow{background-color: #fecb65}`;
+export const green = css`.green{background-color: #32cb65}`;
+export const blue = css`.blue{background-color: #3298cb}`;
+export const lightBlue = css`.light-blue{background-color: #85bdfe}`;
+export const lightRed = css`.light-red{background-color: #fe98cb}`;
+export const lightYellow = css`.light-yellow{background-color: #fefecb}`;
+export const lightGreen = css`.light-green{background-color: #98fe00}`;
 
 export const generalStyles = css`
   * {

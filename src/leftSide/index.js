@@ -7,6 +7,13 @@ import {
   mainScreenBgColor,
   mainButtonsColor,
   red,
+  yellow,
+  green,
+  blue,
+  lightBlue,
+  lightRed,
+  lightYellow,
+  lightGreen,
 } from "../../general-styles";
 
 class LeftSide extends pokedex {
@@ -17,6 +24,13 @@ class LeftSide extends pokedex {
   static styles = [
     generalStyles,
     red,
+    yellow,
+    green,
+    blue,
+    lightBlue,
+    lightRed,
+    lightYellow,
+    lightGreen,
     css`
       #left-panel {
         background-color: ${mainBgColor};

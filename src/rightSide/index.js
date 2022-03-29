@@ -1,49 +1,42 @@
 import { html, css } from 'lit';
+
 import pokedex from "../index";
+import {
+  generalStyles,
+  mainBgColor,
+  mainScreenBgColor,
+  mainButtonsColor,
+  red,
+  yellow,
+  green,
+  blue,
+  lightBlue,
+  lightRed,
+  lightYellow,
+  lightGreen,
+  squareButtonsColor,
+  secondaryScreenBgColor
+} from '../../general-styles';
 
 class RightSide extends pokedex {
   constructor() {
     super();
   }
 
-  static styles = css`
-    :root {
-      --main-bg-color: #fe0065;
-      --secondary-bg-color: #f2f2f2;
-      --main-screen-bg-color: #98cb98;
-      --secondary-screen-bg-color: #9e9d9d;
-      --main-buttons-color: #585858;
-      --square-buttons-color: #7ca9f7;
-    }
-
-    .red {
-      background-color: #ff0000;
-    }
-    .yellow {
-      background-color: #fecb65;
-    }
-    .green {
-      background-color: #32cb65;
-    }
-    .blue {
-      background-color: #3298cb;
-    }
-
-    .light-blue {
-      background-color: #85bdfe;
-    }
-    .light-red {
-      background-color: #fe98cb;
-    }
-    .light-yellow {
-      background-color: #fefecb;
-    }
-    .light-green {
-      background-color: #98fe00;
-    }
-
-    #right-panel {
-      background-color: var(--main-bg-color);
+  static styles = [generalStyles,
+    mainBgColor,
+    mainScreenBgColor,
+    mainButtonsColor,
+    red,
+    yellow,
+    green,
+    blue,
+    lightBlue,
+    lightRed,
+    lightYellow,
+    lightGreen,
+    css`#right-panel {
+      background-color: ${mainBgColor};
       box-sizing: border-box;
       position: relative;
       height: 100%;
@@ -73,7 +66,7 @@ class RightSide extends pokedex {
       font-family: "Press Start 2P", cursive;
       width: 16rem;
       height: 6rem;
-      background-color: var(--secondary-screen-bg-color);
+      background-color: ${secondaryScreenBgColor};
       border: solid black 0.125rem;
       border-radius: 4px;
       font-size: xx-small;
@@ -128,7 +121,7 @@ class RightSide extends pokedex {
     .blue-square {
       border-radius: 0.125rem;
       border: black 0.1rem solid;
-      background-color: var(--square-buttons-color);
+      background-color: ${squareButtonsColor};
       box-shadow: inset -2px -2px #3298cb;
     }
 
@@ -189,7 +182,7 @@ class RightSide extends pokedex {
       width: 2.75rem;
       height: 0.5rem;
       border: 0.125rem solid black;
-      background-color: var(--main-buttons-color);
+      background-color: ${mainButtonsColor};
       margin-left: 10px;
       border-radius: 0.5rem;
     }
@@ -223,7 +216,7 @@ class RightSide extends pokedex {
       width: 6rem;
       height: 2.25rem;
     }
-  `;
+  `];
 
   __blankContainer = () =>  html`<section class="empty-container">
         <svg height="100%" width="100%">
