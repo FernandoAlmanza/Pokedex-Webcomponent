@@ -1,5 +1,7 @@
 import { LitElement, html, css } from "lit";
 
+import { generalStyles } from "../general-styles.js";
+
 export default class pokedex extends LitElement {
   static properties = {
     pokeName: {
@@ -22,102 +24,69 @@ export default class pokedex extends LitElement {
     image: { type: "String" },
   };
 
-  static styles = css`
-    :root {
-      --main-bg-color: #fe0065;
-      --secondary-bg-color: #f2f2f2;
-      --main-screen-bg-color: #98cb98;
-      --secondary-screen-bg-color: #9e9d9d;
-      --main-buttons-color: #585858;
-      --square-buttons-color: #7ca9f7;
-    }
+  static styles = [generalStyles, css`/* poke-dex */
+  #pokedex {
+    height: 30rem;
+    width: auto;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem;
+  }
 
-    .red {
-      background-color: #ff0000;
-    }
-    .yellow {
-      background-color: #fecb65;
-    }
-    .green {
-      background-color: #32cb65;
-    }
-    .blue {
-      background-color: #3298cb;
-    }
+  #pokedex-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+  }
 
-    .light-blue {
-      background-color: #85bdfe;
-    }
-    .light-red {
-      background-color: #fe98cb;
-    }
-    .light-yellow {
-      background-color: #fefecb;
-    }
-    .light-green {
-      background-color: #98fe00;
-    }
-
-    /* poke-dex */
+  @media only screen and (max-width: 600px) {
     #pokedex {
-      height: 30rem;
-      width: calc(20rem * 2);
-      display: flex;
-      border-radius: 10px;
-      flex-direction: column;
+      width: 90%;
     }
+  }
 
-    #pokedex-container{
-      display: flex;
-      flex-direction: row;
-      margin-top: 2rem;
-    }
+  #search-container{
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    @media only screen and (max-width: 600px) {
-      #pokedex {
-        width: 90%;
-      }
-    }
+  #search-box {
+    padding: 1rem;
+  }
 
-    #search-container{
-      margin: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  input {
+    text-align: center;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
 
-    #search-box {
-      padding: 1rem;
-    }
+  #submit {
+    padding: 0.8rem 2rem;
+    background-color: #fe0065;
+    color: #f2f2f2;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: ease-in-out 0.25s;
+  }
 
-    input {
-      text-align: center;
-      height: 40px;
-      border-radius: 4px;
-      margin-right: 10px;
-    }
+  #submit:hover {
+    background-color: #ff6ea8;
+    transition: ease-in-out 0.25s;
+  }
 
-    #submit {
-      padding: 0.8rem 2rem;
-      background-color: #fe0065;
-      color: #f2f2f2;
-      border: none;
-      cursor: pointer;
-      border-radius: 0.5rem;
-      transition: ease-in-out 0.25s;
-    }
-
-    #submit:hover {
-      background-color: #ff6ea8;
-      transition: ease-in-out 0.25s;
-    }
-
-    #submit:active {
-      background-color: #a00040;
-      transition: ease-in-out 0.25s;
-      padding: 0.6rem 2rem;
-    }
-  `;
+  #submit:active {
+    background-color: #a00040;
+    transition: ease-in-out 0.25s;
+    padding: 0.6rem 2rem;
+  }
+`];
 
   __fetchPokemon = () => {
     const pokeNameInput = this.renderRoot?.querySelector("#pokeName");
@@ -206,6 +175,12 @@ export default class pokedex extends LitElement {
     const boton = this.renderRoot?.querySelector("#submit");
     boton?.addEventListener("click", this.__fetchPokemon);
   }
+
+  // TODO:
+  //componente buscaPokemon
+  //atributo = nombre S input
+  //listener del evento submit -> dispatcEvent ( Composing composed true)
+  //left listener del evento compoing, event
 
   render = () => html`<search-bar></search-bar>
     <div id="pokedex">
