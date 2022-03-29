@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "pokedex-1",
+          "declaration": {
+            "name": "pokedex-1",
+            "module": "/src/index.js"
+          }
+        }
+      ]
+    }
+  ]
+}

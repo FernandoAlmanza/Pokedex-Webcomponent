@@ -4,7 +4,17 @@
   "main": "./src/index.js",
   "author": "Jesus Fernando Almanza Loredo <jf_almanza0025@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "analyze": "cem analyze --litelement",
+    "start": "web-dev-server"
+  },
   "dependencies": {
-    "lit": "^2.2.1"
-  }
+    "lit": "^2.0.2",
+    "start": "^5.1.0"
+  },
+  "devDependencies": {
+    "@custom-elements-manifest/analyzer": "^0.4.17",
+    "@web/dev-server": "^0.1.28"
+  },
+  "customElements": "custom-elements.json"
 }

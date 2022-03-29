@@ -1,7 +1,7 @@
-import { html, css } from "lit";
-import SearchBar from "../SearchBar";
+import { html, css } from 'lit';
+import pokedex from "../index";
 
-class RightSide extends SearchBar {
+class RightSide extends pokedex {
   constructor() {
     super();
   }
@@ -225,8 +225,7 @@ class RightSide extends SearchBar {
     }
   `;
 
-  __blankContainer() {
-    return `<section class="empty-container">
+  __blankContainer = () =>  html`<section class="empty-container">
         <svg height="100%" width="100%">
           <polyline
             points="0,0 0,40 138,40 158,75 325,75 350,0 0,0"
@@ -238,14 +237,13 @@ class RightSide extends SearchBar {
           />
         </svg>
       </section>`;
-  }
 
   __topScreen() {
-    const general = `<section class="general">
+    const general = html`<section class="general">
         <p>Type <span id="type">${this.tipo}</span></p>
         <p>Weakness <span id="weakness">${this.debilidad}</span></p>
       </section>`;
-    const stats = `<section class="stats">
+    const stats = html`<section class="stats">
         <section class="contenedorStat">
           <span id="health">${this.salud}</span>
           <p>HP</p>
@@ -271,18 +269,18 @@ class RightSide extends SearchBar {
           <p>SPEED</p>
         </section>
       </section>`;
-    const aboutScreen = `<section id="about-screen" class="right-panel-screen">
+    const aboutScreen = html`<section id="about-screen" class="right-panel-screen">
         ${general}
         ${stats}
       </section>`;
 
-    return `<section class="top-screen-container">
+    return html`<section class="top-screen-container">
         ${aboutScreen}
       </section>`;
   }
 
   __buttons() {
-    const blueButton = `<section class="square-buttons-container">
+    const blueButton = html`<section class="square-buttons-container">
         <section class="blue-squares-container">
           <section class="blue-square"></section>
           <section class="blue-square"></section>
@@ -296,7 +294,7 @@ class RightSide extends SearchBar {
           <section class="blue-square"></section>
         </section>
       </section>`;
-    const centerButton = `<section class="center-buttons-container">
+    const centerButton = html`<section class="center-buttons-container">
         <section class="center-left-container">
           <section class="small-reds-container">
             <section class="small-light red">
@@ -321,11 +319,11 @@ class RightSide extends SearchBar {
           </section>
         </section>
       </section>`;
-    return blueButton + centerButton;
+    return html`${blueButton} ${centerButton}`;
   }
 
-  bottomScreen() {
-    return `<section class="bottom-screens-container">
+  __bottomScreen() {
+    return html`<section class="bottom-screens-container">
         <section id="type-screen" class="right-panel-screen">
           <span id="size">${this.altura}</span>
         </section>
