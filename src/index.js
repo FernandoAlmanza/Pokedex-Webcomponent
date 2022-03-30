@@ -1,7 +1,9 @@
 import { LitElement, html, css } from "lit";
 
 import { generalStyles } from "../general-styles.js";
-import Pokemon from "./repository/index.js";
+import "./SearchBar"
+import "./leftSide"
+import "./rightSide"
 
 export default class pokedex extends LitElement {
   static properties = {
@@ -57,7 +59,7 @@ export default class pokedex extends LitElement {
     fetch(url)
       .then((res) => {
         if (res.status != "200") {
-          this.image = html`<img src="https://http.cat/404" />`;
+          this.image = "https://http.cat/404";
           this.nombre = "404";
         } else {
           return res.json();
@@ -84,7 +86,7 @@ export default class pokedex extends LitElement {
           });
           let pokeImg = data.sprites.front_default;
 
-          this.image = html`<img src="${pokeImg}" />`;
+          this.image = pokeImg;
           this.nombre = nombrePokemon.toUpperCase();
           this.altura = `${estaturaPokemon / 10} m`;
           this.peso = `${pesoPokemon / 10} kg`;
@@ -136,7 +138,7 @@ export default class pokedex extends LitElement {
     <div id="pokedex">
       <search-bar @submit-pokename="${this.__fetchPokemon}"></search-bar>
       <div id="pokedex-container">
-      <left-side nombre=${this.nombre} .image=${this.image}></left-side>
+      <left-side nombre=${this.nombre} image=${this.image}></left-side>
         <right-side
           altura=${this.altura}
           debilidad=${this.debilidad}
