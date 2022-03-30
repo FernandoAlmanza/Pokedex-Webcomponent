@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 
 import { generalStyles } from "../general-styles.js";
+import Pokemon from "./repository/index.js";
 
 export default class pokedex extends LitElement {
   static properties = {
@@ -46,53 +47,13 @@ export default class pokedex extends LitElement {
     #pokedex {
       width: 90%;
     }
-  }
+  }`];
 
-  #search-container{
-    margin: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  #search-box {
-    padding: 1rem;
-  }
-
-  input {
-    text-align: center;
-    height: 40px;
-    border-radius: 4px;
-    margin-right: 10px;
-  }
-
-  #submit {
-    padding: 0.8rem 2rem;
-    background-color: #fe0065;
-    color: #f2f2f2;
-    border: none;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    transition: ease-in-out 0.25s;
-  }
-
-  #submit:hover {
-    background-color: #ff6ea8;
-    transition: ease-in-out 0.25s;
-  }
-
-  #submit:active {
-    background-color: #a00040;
-    transition: ease-in-out 0.25s;
-    padding: 0.6rem 2rem;
-  }
-`];
-
-  __fetchPokemon = () => {
-    const pokeNameInput = this.renderRoot?.querySelector("#pokeName");
-    this.pokeName = pokeNameInput.value.toLowerCase();
+  __fetchPokemon = (event) => {
+    const pokeNameInput = event.detail.pokename;
+    const pokeName = pokeNameInput.value.toLowerCase();
     pokeNameInput.value = ""
-    const url = `https://pokeapi.co/api/v2/pokemon/${this.pokeName}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/${pokeName}`;
     fetch(url)
       .then((res) => {
         if (res.status != "200") {
@@ -171,25 +132,11 @@ export default class pokedex extends LitElement {
     return debilidad;
   };
 
-  firstUpdated() {
-    const boton = this.renderRoot?.querySelector("#submit");
-    boton?.addEventListener("click", this.__fetchPokemon);
-  }
-
-  // TODO:
-  //componente buscaPokemon
-  //atributo = nombre S input
-  //listener del evento submit -> dispatcEvent ( Composing composed true)
-  //left listener del evento compoing, event
-
-  render = () => html`<search-bar></search-bar>
+  render = () => html`
     <div id="pokedex">
-      <div id="search-container">
-        <input id="pokeName" type="text" placeholder="Nombre" />
-        <button id="submit">Buscar</button>
-      </div>
+      <search-bar @submit-pokename="${this.__fetchPokemon}"></search-bar>
       <div id="pokedex-container">
-        <left-side nombre=${this.nombre} .image=${this.image}></left-side>
+      <left-side nombre=${this.nombre} .image=${this.image}></left-side>
         <right-side
           altura=${this.altura}
           debilidad=${this.debilidad}
