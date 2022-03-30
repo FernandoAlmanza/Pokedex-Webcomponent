@@ -1,7 +1,7 @@
 import { css } from "lit";
 
 export const mainBgColor = css`#fe0065`;
-export const secondaryBgColor = css`#f2f2f2`;
+const secondaryBgColor = css`#f2f2f2`;
 export const mainScreenBgColor = css`#98cb98`;
 export const secondaryScreenBgColor = css`#9e9d9d`;
 export const mainButtonsColor = css`#585858`;
@@ -62,7 +62,7 @@ export const generalStyles = [
       flex-direction: column;
       justify-content: start;
       align-items: center;
-      background-color: var(--secondary-bg-color);
+      background-color: ${secondaryBgColor};
     }
 
     .search-container {
