@@ -2,17 +2,9 @@ import { LitElement, html, css } from "lit";
 
 import {
   generalStyles,
-  mainBgColor,
   mainScreenBgColor,
-  mainButtonsColor,
-  red,
-  yellow,
-  green,
-  blue,
-  lightBlue,
-  lightRed,
-  lightYellow,
-  lightGreen,
+  mainBgColor,
+  mainButtonsColor
 } from "../../general-styles";
 
 class LeftSide extends LitElement {
@@ -29,14 +21,6 @@ class LeftSide extends LitElement {
 
   static styles = [
     generalStyles,
-    red,
-    yellow,
-    green,
-    blue,
-    lightBlue,
-    lightRed,
-    lightYellow,
-    lightGreen,
     css`
       #left-panel {
         background-color: ${mainBgColor};

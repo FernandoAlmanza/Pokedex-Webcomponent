@@ -3,18 +3,9 @@ import { LitElement, html, css } from "lit";
 import {
   generalStyles,
   mainBgColor,
-  mainScreenBgColor,
   mainButtonsColor,
-  red,
-  yellow,
-  green,
-  blue,
-  lightBlue,
-  lightRed,
-  lightYellow,
-  lightGreen,
-  squareButtonsColor,
   secondaryScreenBgColor,
+  squareButtonsColor
 } from "../../general-styles";
 
 class RightSide extends LitElement {
@@ -39,17 +30,6 @@ class RightSide extends LitElement {
 
   static styles = [
     generalStyles,
-    mainBgColor,
-    mainScreenBgColor,
-    mainButtonsColor,
-    red,
-    yellow,
-    green,
-    blue,
-    lightBlue,
-    lightRed,
-    lightYellow,
-    lightGreen,
     css`
       #right-panel {
         background-color: ${mainBgColor};
