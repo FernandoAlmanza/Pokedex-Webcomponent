@@ -1,6 +1,5 @@
-import { html, css } from "lit";
+import { LitElement, html, css } from "lit";
 
-import pokedex from "..";
 import {
   generalStyles,
   mainBgColor,
@@ -16,7 +15,14 @@ import {
   lightGreen,
 } from "../../general-styles";
 
-class LeftSide extends pokedex {
+class LeftSide extends LitElement {
+  static get properties(){
+    return {
+      nombre: {type: String},
+      image: {type: String}
+    }
+  }
+
   constructor() {
     super();
   }
@@ -391,7 +397,9 @@ class LeftSide extends pokedex {
           <section class="mini-light red"></section>
           <section class="mini-light red"></section>
         </section>
-        <section id="main-screen">${this.image}</section>
+        <section id="main-screen">
+          <img src=${this.image} />
+        </section>
         <section class="bottom-screen-lights">
           <section class="small-light red">
             <section class="dot light-red"></section>
